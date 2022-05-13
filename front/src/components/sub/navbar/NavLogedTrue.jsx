@@ -1,7 +1,12 @@
 import React from 'react'
-import { Nav, NavLink, NavMenu } from './Elements'
+import { Nav, NavBtn, NavBtnLink, NavLink, NavMenu } from './Elements'
 
 const NavLogedTrue = () => {
+
+  const logout=() => {
+    sessionStorage.removeItem('token')
+    props.beallit({token: ""})}
+
   return (
     <Nav>
       <NavMenu>
@@ -9,7 +14,7 @@ const NavLogedTrue = () => {
         <NavLink to='/costumers' activeStyle>Costumers</NavLink>
         <NavLink to='/items' activeStyle>Items</NavLink>
       </NavMenu>
-      <NavBtn>
+      <NavBtn onClick={logout}>
         <NavBtnLink to='/'>Log Out</NavBtnLink>
       </NavBtn>
     </Nav>
